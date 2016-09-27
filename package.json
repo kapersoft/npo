@@ -1,6 +1,6 @@
 {
   "name": "npo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI utility to watch NPO streams in QuickTime Player",
   "main": "index.js",
   "scripts": {
