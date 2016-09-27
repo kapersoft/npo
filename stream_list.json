@@ -1,0 +1,42 @@
+[
+	{
+		"cmd": "1",
+		"description": "NPO 1",
+		"url": "http://livestreams.omroep.nl/live/npo/tvlive/ned1/ned1.isml/ned1.m3u8"
+	},
+	{
+		"cmd": "2",
+		"description": "NPO 2",
+		"url": "http://livestreams.omroep.nl/live/npo/tvlive/ned2/ned2.isml/ned2.m3u8"
+	},
+	{
+		"cmd": "3",
+		"description": "NPO 3",
+		"url": "http://livestreams.omroep.nl/live/npo/tvlive/ned3/ned3.isml/ned3.m3u8"
+	},
+	{
+		"cmd": "nieuws",
+		"description": "NPO Nieuws",
+		"url": "http://livestreams.omroep.nl/live/npo/thematv/journaal24/journaal24.isml/journaal24.m3u8"
+	},
+	{
+		"cmd": "politiek",
+		"description": "NPO Politiek",
+		"url": "http://livestreams.omroep.nl/live/npo/thematv/politiek24/politiek24.isml/politiek24.m3u8"
+	},
+	{
+		"cmd": "zapp/best",
+		"description": "NPO Zapp Xtra (<20:00h), NPO Best (>20:00h)",
+		"url": "http://livestreams.omroep.nl/live/npo/thematv/zappelin24/zappelin24.isml/zappelin24.m3u8"
+	},
+	{
+		"cmd": "101",
+		"description": "NPO 101",
+		"url": "http://livestreams.omroep.nl/live/npo/thematv/101tv/101tv.isml/101tv.m3u8"
+	},
+	{
+		"cmd": "cultura",
+		"description": "NPO Cultura",
+		"url": "http://livestreams.omroep.nl/live/npo/thematv/cultura24/cultura24.isml/cultura24.m3u8"
+	}
+]
