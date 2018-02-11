@@ -37,7 +37,7 @@ exports.showChannel = function(stream) {
  */
 exports.showVideo = function(url) {
     if (!checkUrl(url)) {
-        consoleIO.error('Only urls from the NPO site (http://npo.nl) are allowed.');
+        consoleIO.error('Only urls from the NPO site (https://npo.nl) are allowed.');
     } else {
         try {
             let key = url.split('?')[0].split('/')[5];

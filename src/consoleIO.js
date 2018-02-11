@@ -39,18 +39,18 @@ exports.processMenu = function() {
         stream_list.forEach(function (stream) {
             commander.option(stream.cmd, stream.description);
         });
-        commander.option('-v --video [url]', 'Stream a video from http://npo.nl, use url from the address bar');
-        commander.option('-d --download [url]', 'Download a video from http://npo.nl, use url from the address bar');
+        commander.option('-v --video [url]', 'Stream a video from https://npo.nl, use url from the address bar');
+        commander.option('-d --download [url]', 'Download a video from https://npo.nl, use url from the address bar');
 
         // Add extra info for help option
         commander.on('--help', function () {
             console.log('');
             console.log('  Examples:');
             console.log('    $ npo cultura');
-            console.log('    $ npo --url http://www.npo.nl/zondag-met-lubach/VPWON_1250334');
+            console.log('    $ npo --url https://www.npo.nl/zondag-met-lubach/VPWON_1250334');
             console.log('    $ npo --download https://www.npo.nl/the-mind-of-the-universe/07-05-2017/VPWON_1240593');
             console.log('');
-            console.log('  NPO is the Dutch public broadcaster. More info about NPO can be found at http://npo.nl');
+            console.log('  NPO is the Dutch public broadcaster. More info about NPO can be found at https://npo.nl');
             console.log('');
         });
 
