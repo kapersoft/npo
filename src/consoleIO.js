@@ -11,7 +11,7 @@ const figlet      = require('figlet');
 const shell       = require('shelljs');
 const stream_list = require('../stream_list.json');
 
-/**rm
+/**
  * Displays welcome screen and process commandline arguments
  * @returns {Promise}
  */
