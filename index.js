@@ -32,7 +32,7 @@ consoleIO.processMenu()
                 video.downloadVideo(data.url);
                 break;
             default:
-                consoleIO.error('"' + data.argument + '" is not a NPO stream. See `npo --help` for a list of NPO streams.');
+                consoleIO.error(data.message);
                 break;
         }
      });

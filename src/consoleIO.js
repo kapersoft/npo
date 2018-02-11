@@ -11,7 +11,7 @@ const figlet      = require('figlet');
 const shell       = require('shelljs');
 const stream_list = require('../stream_list.json');
 
-/**
+/**rm
  * Displays welcome screen and process commandline arguments
  * @returns {Promise}
  */
@@ -31,7 +31,6 @@ exports.processMenu = function() {
 
         // Tweak commandline arguments a bit
         if (process.argv.length === 2) process.argv.push('--help'); // show help if no command is entered
-        if (process.argv.indexOf('-v') > -1) process.argv[process.argv.indexOf('-v')] = '-V'; // use -v for version
 
         // Setup commander
         commander.option('-i, --info', 'display license- and contact information');
@@ -63,10 +62,24 @@ exports.processMenu = function() {
                 return resolve({type: 'live', stream: stream});
             }
         });
-        if (commander.video) return resolve({type: 'video', url: commander.video});
-        if (commander.download) return resolve({type: 'download', url: commander.download});
-        if (commander.info || commander.i) return resolve({type: 'info'});
-        return resolve({type: 'error', 'argument': process.argv[2]});
+
+        if (commander.video === true || commander.download === true) {
+            return resolve({type: 'error', 'message': 'No URL given. See `npo --help` for options.'});
+        }
+
+        if (commander.video) {
+            return resolve({type: 'video', url: commander.video});
+        }
+
+        if (commander.download) {
+            return resolve({type: 'download', url: commander.download});
+        }
+
+        if (commander.info || commander.i) {
+            return resolve({type: 'info'});
+        }
+
+        return resolve({type: 'error', 'message': '"' + process.argv[2] + '" is not a NPO stream. See `npo --help` for a list of NPO streams.'});
     });
 };
 

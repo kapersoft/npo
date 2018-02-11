@@ -23,7 +23,11 @@ exports.showChannel = function(stream) {
     // Get URL
     try {
         npo.getLiveUrl(stream.key).then(function(streamUrl) {
-            displayVideo(streamUrl);
+            if (streamUrl.toLowerCase().startsWith('https://')) {
+                displayVideo(streamUrl);
+            } else {
+                consoleIO.error(streamUrl);
+            }
         });
     }
     catch (e) {
@@ -43,7 +47,11 @@ exports.showVideo = function(url) {
             let key = url.split('?')[0].split('/')[5];
             consoleIO.comment('Fetching stream URL for ' + key);
             npo.getVideoUrl(key).then(function(streamUrl) {
-                displayVideo(streamUrl);
+                if (streamUrl.toLowerCase().startsWith('https://')) {
+                    displayVideo(streamUrl);
+                } else {
+                    consoleIO.error(streamUrl);
+                }
             });
         }
         catch (e) {
@@ -64,7 +72,11 @@ exports.downloadVideo = function(url) {
             let key = url.split('?')[0].split('/')[5];
             consoleIO.comment('Fetching download URL for ' + key);
             npo.getVideoUrl(key).then(function(streamUrl) {
-                downloadFile(streamUrl, process.cwd() + '/' + key + '.m4v');
+                if (streamUrl.toLowerCase().startsWith('https://')) {
+                    downloadFile(streamUrl, process.cwd() + '/' + key + '.m4v');
+                } else {
+                    consoleIO.error(streamUrl);
+                }
             });
         }
         catch (e) {

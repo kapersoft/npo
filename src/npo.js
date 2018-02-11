@@ -25,7 +25,11 @@ exports.getVideoUrl = function(key) {
 
             if (selectedStream) {
                 request(selectedStream.url, function(error, response, body) {
-                    return resolve(JSON.parse(S(body).between('(', ')')).url);
+                    if (body.indexOf("errorstring") < 0) {
+                        return resolve(JSON.parse(S(body).between('(', ')')).url);
+                    } else {
+                        return resolve(S(body).between('"errorstring":"', '"').toString());
+                    }
                 });
             }
         });
@@ -46,7 +50,11 @@ exports.getLiveUrl = function(key) {
             });
             if (selectedStream) {
                 request(selectedStream.url, function(error, response, body) {
-                    return resolve(S(body).between('"', '"').toString().replace(/\\\//g, "/"));
+                    if (body.indexOf("errorstring") < 0) {
+                        return resolve(S(body).between('"', '"').toString().replace(/\\\//g, "/"));
+                    } else {
+                        return resolve(S(body).between('"errorstring":"', '"').toString());
+                    }
                 });
             }
         });
